@@ -40,6 +40,7 @@ Use via SQL::Translator:
 =cut
 
 use strict;
+use warnings;
 use GD;
 use Data::Dumper;
 use SQL::Translator::Schema::Constants;
