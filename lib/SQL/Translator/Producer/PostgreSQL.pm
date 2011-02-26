@@ -174,7 +174,6 @@ and table_constraint is:
 
 =cut
 
-# -------------------------------------------------------------------
 sub produce {
     my $translator       = shift;
     local $DEBUG         = $translator->debug;
@@ -238,7 +237,6 @@ sub produce {
         : join ('', @output);
 }
 
-# -------------------------------------------------------------------
 sub mk_name {
     my $basename      = shift || '';
     my $type          = shift || '';
@@ -277,7 +275,6 @@ sub mk_name {
     return $name;
 }
 
-# -------------------------------------------------------------------
 sub next_unused_name {
     my $orig_name = shift or return;
     my $name      = $orig_name;
