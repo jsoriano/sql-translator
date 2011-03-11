@@ -30,18 +30,11 @@ sub produce {
     for my $table ( grep { $_->name } $schema->get_tables ) {
         my $table_name_ur = $future->quote($table->name);
 
-        my ( @comments );
-
-        push @comments, "\n\n--\n-- Table: $table_name_ur\n--"
-           unless $no_comments;
-
-        push @comments, map { "-- $_" } $table->comments;
-
         push @foreign_constraints, map $future->foreign_key_constraint($_),
            grep { $_->type eq FOREIGN_KEY } $table->get_constraints;
 
         $output .= join( "\n\n",
-            @comments,
+            $self->table_comments,
             # index defs
             $future->table($table),
             (map $future->unique_constraint_multiple($_),
