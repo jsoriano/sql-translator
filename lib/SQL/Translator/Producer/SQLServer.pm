@@ -22,19 +22,17 @@ sub produce {
     my $add_drop_table = $translator->add_drop_table;
     my $schema         = $translator->schema;
 
-    my $output = $future->header_comment
-    $output .= $future->drop_tables($schema);
+    my $output = $future->header_comments
+      . $future->drop_tables($schema);
 
     my @foreign_constraints = ();
 
     for my $table ( grep { $_->name } $schema->get_tables ) {
-        my $table_name_ur = $future->quote($table->name);
-
         push @foreign_constraints, map $future->foreign_key_constraint($_),
            grep { $_->type eq FOREIGN_KEY } $table->get_constraints;
 
         $output .= join( "\n\n",
-            $self->table_comments,
+            $future->table_comments($table),
             # index defs
             $future->table($table),
             (map $future->unique_constraint_multiple($_),

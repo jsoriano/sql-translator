@@ -85,6 +85,6 @@ sub fields {
 
 sub nullable { 'NULL' }
 
-sub header_comment { header_comment."\n" if $_[0]->add_comments }
+sub header_comments { header_comment."\n" if $_[0]->add_comments }
 
 1;
