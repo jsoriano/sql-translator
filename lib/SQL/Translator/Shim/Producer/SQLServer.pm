@@ -161,8 +161,8 @@ sub constraints {
 
 sub table {
    my ($self, $table) = @_;
+   join ( "\n", $self->table_comments($table), '' ) .
    join ( "\n\n",
-      $self->table_comments($table),
       'CREATE TABLE ' . $self->quote($table->name) . " (\n".
         join( ",\n",
            map { "  $_" }
