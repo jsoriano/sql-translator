@@ -8,6 +8,8 @@
 * Quote everything in SQL Server
 * Turn off constraints before dropping tables in SQL Server
 * Make true unique constraints if needed in SQL Server
+* Fixed alter_drop_constraint for foreign keys and applying multiple changes
+  via alter_field to a column in Postgres Producer
 
 # ----------------------------------------------------------
 # 0.11007 2010-11-30
