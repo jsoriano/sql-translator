@@ -12,6 +12,7 @@ use_ok( "SQL::Translator::Producer::SQLite" );
 # may be duplicated.
 #
 # SQL::Translator::Producer::SQLite version 1.59.
+# compliments of SymKat <symkat@symkat.com>
  
 
 
